@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0RF-lq-VfI">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Rn3-7h-avz">
+            <objects>
+                <navigationController id="0RF-lq-VfI" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k3T-Ef-3VL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6Rd-Tt-KJX" kind="relationship" relationship="rootViewController" id="eS8-fW-wpU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bel-J7-JSy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1674" y="65"/>
+        </scene>
+        <!--2D-->
+        <scene sceneID="SCU-0I-fWx">
+            <objects>
+                <viewController id="6Rd-Tt-KJX" customClass="MapViewController" customModule="ARRoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8WV-O5-Juz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BTz-7e-C26">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIT-d2-KfV" customClass="AGSMapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="416"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywn-4Y-xgN" userLabel="RoutingView">
+                                        <rect key="frame" x="0.0" y="424" width="375" height="150"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="oUP-2U-0ia" userLabel="Stack View Get location">
+                                                <rect key="frame" x="10" y="10" width="355" height="78"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uCE-NK-zee" userLabel="Stack View Fields">
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="78"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Départ : GPS ou appui court sur la carte" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3br-NS-LUs" userLabel="FromAreaField">
+                                                                <rect key="frame" x="0.0" y="0.0" width="302" height="36"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Arrivée : appui long sur la carte" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsg-tE-uDc" userLabel="ToAreaField">
+                                                                <rect key="frame" x="0.0" y="44" width="302" height="34"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqI-tf-rLa" userLabel="GetGPS">
+                                                        <rect key="frame" x="319" y="0.0" width="36" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="c4r-5k-kGW"/>
+                                                            <constraint firstAttribute="width" constant="36" id="kdc-8A-r7c"/>
+                                                        </constraints>
+                                                        <state key="normal" image="gps"/>
+                                                        <connections>
+                                                            <action selector="GetGPSLocation:" destination="6Rd-Tt-KJX" eventType="touchUpInside" id="w9B-t0-GgW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="CqI-tf-rLa" firstAttribute="centerY" secondItem="3br-NS-LUs" secondAttribute="centerY" id="T1l-qJ-pl2"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s1-XS-2S3" userLabel="Route">
+                                                <rect key="frame" x="10" y="110" width="355" height="30"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Calculer l'itinéraire"/>
+                                                <connections>
+                                                    <action selector="RunRouting:" destination="6Rd-Tt-KJX" eventType="touchUpInside" id="69e-xr-juU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="3s1-XS-2S3" firstAttribute="leading" secondItem="ywn-4Y-xgN" secondAttribute="leading" constant="10" id="869-hf-Z6h"/>
+                                            <constraint firstItem="oUP-2U-0ia" firstAttribute="leading" secondItem="ywn-4Y-xgN" secondAttribute="leading" constant="10" id="GeK-2a-DOe"/>
+                                            <constraint firstAttribute="trailing" secondItem="3s1-XS-2S3" secondAttribute="trailing" constant="10" id="Huy-O5-AHS"/>
+                                            <constraint firstAttribute="bottom" secondItem="3s1-XS-2S3" secondAttribute="bottom" constant="10" id="WHi-Q8-WQV"/>
+                                            <constraint firstItem="oUP-2U-0ia" firstAttribute="width" secondItem="ywn-4Y-xgN" secondAttribute="width" constant="-20" id="iw8-be-l5x"/>
+                                            <constraint firstItem="oUP-2U-0ia" firstAttribute="top" secondItem="ywn-4Y-xgN" secondAttribute="top" constant="10" id="jT8-40-SLk"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="EIT-d2-KfV" firstAttribute="top" secondItem="BTz-7e-C26" secondAttribute="top" id="OdP-PE-jw0"/>
+                                    <constraint firstItem="ywn-4Y-xgN" firstAttribute="leading" secondItem="BTz-7e-C26" secondAttribute="leading" id="Q9P-ml-rod"/>
+                                    <constraint firstAttribute="bottom" secondItem="ywn-4Y-xgN" secondAttribute="bottom" id="Z85-mk-Dk7"/>
+                                    <constraint firstItem="EIT-d2-KfV" firstAttribute="leading" secondItem="BTz-7e-C26" secondAttribute="leading" id="kwc-H3-wYy"/>
+                                    <constraint firstItem="EIT-d2-KfV" firstAttribute="height" secondItem="BTz-7e-C26" secondAttribute="height" multiplier="0.725" id="uDN-fn-Jpu"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BTz-7e-C26" firstAttribute="leading" secondItem="dNf-98-Un2" secondAttribute="leading" id="9FD-3i-Sco"/>
+                            <constraint firstItem="dNf-98-Un2" firstAttribute="bottom" secondItem="BTz-7e-C26" secondAttribute="bottom" id="GIx-CH-1N0"/>
+                            <constraint firstItem="dNf-98-Un2" firstAttribute="trailing" secondItem="BTz-7e-C26" secondAttribute="trailing" id="IZl-JQ-8RD"/>
+                            <constraint firstItem="BTz-7e-C26" firstAttribute="top" secondItem="dNf-98-Un2" secondAttribute="top" id="Yue-GV-SUb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dNf-98-Un2"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="2D" id="GcO-8m-4bo">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="zch-8g-3fC">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Kn-yo-Mru">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="AR">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToArView:" destination="6Rd-Tt-KJX" eventType="touchUpInside" id="dD9-i0-wRK"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="qCF-Z7-o9b" kind="show" identifier="ShowArView" id="l2C-lr-BHK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="FromTextField" destination="3br-NS-LUs" id="oWr-W2-XIV"/>
+                        <outlet property="ToTextField" destination="bsg-tE-uDc" id="32o-sX-Ep5"/>
+                        <outlet property="mapView" destination="EIT-d2-KfV" id="auf-e6-aP0"/>
+                        <outlet property="toArButton" destination="8Kn-yo-Mru" id="WL9-vH-mEK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISi-56-tCj" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.19999999999999" y="125.4872563718141"/>
+        </scene>
+        <!--AR-->
+        <scene sceneID="kbm-9g-e03">
+            <objects>
+                <viewController id="qCF-Z7-o9b" customClass="ARViewController" customModule="ARRoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zmg-hb-YwL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="15s-rZ-96Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AR" id="yTe-C9-Ylj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="daa-I3-eOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029.5999999999999" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gps" width="36" height="36"/>
+    </resources>
+</document>
